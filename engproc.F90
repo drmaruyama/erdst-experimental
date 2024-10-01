@@ -508,7 +508,7 @@ contains
       use mpiproc                                                      ! MPI
       implicit none
       integer :: stnum, pti, j, k, iduv, division, reduce_mpikind
-      character(len=9) :: engfile
+      character(len=10) :: engfile
       character(len=3) :: suffeng
       integer, parameter :: eng_io = 51, cor_io = 52, slf_io = 53
       integer, parameter :: ave_io = 54, wgt_io = 55, uvr_io = 56
@@ -659,9 +659,9 @@ contains
       if(corrcal == YES) then
          select case(slttype)
           case(SLT_SOLN)
-            engfile = 'corsln' // suffeng
+            engfile = 'corsln4' // suffeng
           case(SLT_REFS_RIGID, SLT_REFS_FLEX)
-            engfile = 'corref' // suffeng
+            engfile = 'corref4' // suffeng
          end select
          open(unit = cor_io, file = engfile, form = "UNFORMATTED", action = 'write')
          write(cor_io) ecorr
