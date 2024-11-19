@@ -24,6 +24,7 @@ module sysvars
    character(len=3) :: uvread = 'yes',    slfslt = 'yes',   ljlrc = 'not'
    character(len=3) :: infchk = 'not',    meshread = 'not', cumuint = 'not'
    character(len=3) :: write_mesherror = 'cnd'
+   character(len=4) :: invmtrx = 'orig'
    character(len=4) :: zerosft = 'orig',  wgtfnform = 'harm'
    character(len=3) :: refmerge = 'yes',  extsln = 'lin'
    character(len=3) :: wgtf2smpl = 'yes', slncor = 'not'
@@ -50,7 +51,7 @@ module sysvars
    integer :: minthres_soln = 0, minthres_refs = 0
    real(kind=8), parameter :: zero = 0.0
 !   real(kind=8) :: error = 1.0e-8, tiny = 1.0e-8
-   real(kind=8) :: error = 1.0e-8, tiny = 1.0e-5
+   real(kind=8) :: error = 1.0e-8, tiny = 1.0e-4
    integer :: ermax_limit = 15000
    integer :: large = 500000, itrmax = 100
 
@@ -81,7 +82,7 @@ module sysvars
    logical :: force_calculation = .false., strict_ewald_parameters = .false.
 
    namelist /fevars/ clcond, numprm, numsln, numref, numdiv, &
-      uvread, slfslt, infchk, meshread, zerosft, wgtfnform, &
+      uvread, slfslt, infchk, meshread, invmtrx, zerosft, wgtfnform, &
       refmerge, extsln, extthres_soln, extthres_refs, &
       minthres_soln, minthres_refs, &
       wgtf2smpl, slncor, normalize, showdst, wrtzrsft, readwgtfl, &
